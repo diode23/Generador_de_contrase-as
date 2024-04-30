@@ -1,0 +1,25 @@
+# Función para generar una contraseña segura de longitud especificada
+generate_password <- function(length) {
+  # Caracteres permitidos en la contraseña
+  charset <- c(letters, LETTERS, 0:9, "!@#$%^&*()_+")
+  
+  # Generar la contraseña aleatoria
+  password <- paste0(sample(charset, length, replace = TRUE), collapse = "")
+  
+  return(password)
+}
+
+# Función principal para generar una contraseña segura usando inteligencia artificial
+generate_secure_password <- function(length) {
+  # Llamar a la función para generar la contraseña
+  password <- generate_password(length)
+  
+  # Aplicar algoritmos de inteligencia artificial para mejorar la seguridad de la contraseña
+  # Aquí se puede implementar cualquier técnica de IA para fortalecer la contraseña
+  
+  return(password)
+}
+
+# Ejemplo de uso
+secure_password <- generate_secure_password(12)
+print(secure_password)
