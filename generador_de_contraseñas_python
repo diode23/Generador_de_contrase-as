@@ -1,0 +1,26 @@
+import random
+import string
+
+# Función para generar una contraseña segura de longitud especificada
+def generate_password(length):
+    # Caracteres permitidos en la contraseña
+    charset = string.ascii_letters + string.digits + string.punctuation
+    
+    # Generar la contraseña aleatoria
+    password = ''.join(random.choice(charset) for _ in range(length))
+    
+    return password
+
+# Función principal para generar una contraseña segura usando inteligencia artificial
+def generate_secure_password(length):
+    # Llamar a la función para generar la contraseña
+    password = generate_password(length)
+    
+    # Aplicar algoritmos de inteligencia artificial para mejorar la seguridad de la contraseña
+    # Aquí se puede implementar cualquier técnica de IA para fortalecer la contraseña
+    
+    return password
+
+# Ejemplo de uso
+secure_password = generate_secure_password(12)
+print(secure_password)
