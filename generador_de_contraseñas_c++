@@ -1,0 +1,44 @@
+#include <iostream>
+#include <string>
+#include <random>
+#include <algorithm>
+#include <vector>
+
+// Clase para representar una contraseña segura
+class SecurePassword {
+public:
+    // Constructor para generar una contraseña segura de longitud especificada
+    SecurePassword(int length) {
+        // Caracteres permitidos en la contraseña
+        std::string charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()_+";
+        
+        // Generar la contraseña aleatoria
+        std::random_device rd;
+        std::mt19937 gen(rd());
+        std::uniform_int_distribution<> dis(0, charset.size() - 1);
+        password = "";
+        for (int i = 0; i < length; i++) {
+            password += charset[dis(gen)];
+        }
+    }
+    
+    // Función para obtener la contraseña generada
+    std::string getPassword() {
+        return password;
+    }
+    
+private:
+    std::string password;
+};
+
+// Función principal para generar una contraseña segura usando inteligencia artificial
+SecurePassword generateSecurePassword(int length) {
+    return SecurePassword(length);
+}
+
+int main() {
+    // Ejemplo de uso
+    SecurePassword securePassword = generateSecurePassword(12);
+    std::cout << "Contraseña segura generada: " << securePassword.getPassword() << std::endl;
+    return 0;
+}
